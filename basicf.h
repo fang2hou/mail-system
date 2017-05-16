@@ -135,7 +135,7 @@ void ShowMain(int changeCounter)
     {
         printf("= 5 操作を取り消す\n");
         printf("= 6 保存＆終了\n");
-        printf("= 7 保存しないと終了\n");
+        printf("= 7 保存しないで終了\n");
     }
     else
     {

@@ -23,7 +23,7 @@
  * ╔═╗╦═╗╔═╗╔═╗╔╦╗╔═╗  ┬ ┬┬
  * ║  ╠╦╝║╣ ╠═╣ ║ ║╣   │ ││
  * ╚═╝╩╚═╚═╝╩ ╩ ╩ ╚═╝  └─┘┴
- * Author: Zhou Fang
+ * Author: Tatsuya Kawamura
  * Last Update: Zhou Fang @ 5/7/2017
  * Help user to input the information and store data.
  * @param {data*} startData where the data start.
@@ -63,7 +63,7 @@ void DataCreateUI(data *startData, data *endData, int *dataNumber, backupdata *b
  * ╔═╗╦═╗╔═╗╔═╗╔╦╗╔═╗
  * ║  ╠╦╝║╣ ╠═╣ ║ ║╣
  * ╚═╝╩╚═╚═╝╩ ╩ ╩ ╚═╝
- * Author: Zhou Fang
+ * Author: Tatsuya Kawamura
  * Last Update: Zhou Fang @ 5/7/2017
  * Create the data.
  * @param {data**} startData where the data start.
@@ -265,7 +265,7 @@ int DataReadAll(data *startData, data *endData)
  * ╦ ╦╔═╗╔╦╗╔═╗╔╦╗╔═╗  ┬ ┬┬
  * ║ ║╠═╝ ║║╠═╣ ║ ║╣   │ ││
  * ╚═╝╩  ═╩╝╩ ╩ ╩ ╚═╝  └─┘┴
- * Author: Zhou Fang
+ * Author: Atsushi Hasegawa
  * Last Update: Zhou Fang @ 5/7/2017
  * Help user to find and update saved data.
  * @param {data*} startData where the data start.
@@ -339,7 +339,7 @@ void DataUpdateUI(data *startData, data *endData, int dataNumber, backupdata *ba
  * ╦ ╦╔═╗╔╦╗╔═╗╔╦╗╔═╗
  * ║ ║╠═╝ ║║╠═╣ ║ ║╣
  * ╚═╝╩  ═╩╝╩ ╩ ╩ ╚═╝
- * Author: Zhou Fang
+ * Author: Atsushi Hasegawa
  * Last Update: Zhou Fang @ 5/7/2017
  * update data.
  * @param {data*} startData where the data start.
@@ -395,7 +395,7 @@ int DataUpdate(data *startData, data *endData, data *editedData, int dataID, bac
  * ╔╦╗╔═╗╦  ╔═╗╔╦╗╔═╗  ┬ ┬┬
  *  ║║║╣ ║  ║╣  ║ ║╣   │ ││
  * ═╩╝╚═╝╩═╝╚═╝ ╩ ╚═╝  └─┘┴
- * Author: Zhou Fang
+ * Author: Yuto Takebayashi
  * Last Update: Zhou Fang @ 5/7/2017
  * Help user to find and delete saved data.
  * @param {data*} startData where the data start.
@@ -450,7 +450,7 @@ void DataDeleteUI(data *startData, data *endData, int *dataNumber, backupdata *b
  * ╔╦╗╔═╗╦  ╔═╗╔╦╗╔═╗
  *  ║║║╣ ║  ║╣  ║ ║╣
  * ═╩╝╚═╝╩═╝╚═╝ ╩ ╚═╝
- * Author: Zhou Fang
+ * Author: Yuto Takebayashi
  * Last Update: Zhou Fang @ 5/7/2017
  * Delete the data.
  * @param {data*} startData where the data start.
