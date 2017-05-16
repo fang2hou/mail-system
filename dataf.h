@@ -700,7 +700,8 @@ int FindID(data *startData, data *endData, int dataNumber, char *subTitle)
  * ╦═╗╔═╗╔╦╗╔═╗
  * ╠╦╝║╣  ║║║ ║
  * ╩╚═╚═╝═╩╝╚═╝
- * Author: Fang Zhou
+ * Author: Masuda Tatsuki
+ * Last Update: Zhou Fang @ 5/1/2017
  * Redo function.
  * @param {data*} startData where the data start.
  * @param {data*} endData where the data end.
