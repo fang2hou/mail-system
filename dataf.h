@@ -161,7 +161,7 @@ void DataReadUI(data *startData, data *endData, int dataNumber)
         FlushBuffer();
         scanf("%d", &isReturn);
         while (isReturn != 0) {
-            printf("入力したモードは存在しない、もう一度入力してください。\n");
+            printf("入力したモードは存在しません、もう一度入力してください。\n");
             FlushBuffer();
             scanf("%d", &isReturn);
         }
@@ -291,17 +291,17 @@ void DataUpdateUI(data *startData, data *endData, int dataNumber, backupdata *ba
             printf("==[%s]======================\n", "既存のデータのUPDATE");
             DataReadEdited(startData, endData, editedData, dataID);
             printf("===================================\n");
-            printf("= 1 Change name\n");
-            printf("= 2 Change mail\n");
-            printf("= 3 Change sex\n");
-            printf("= 4 Change group\n");
-            printf("= 5 Save changes\n");
-            printf("= 0 Quit without change\n>");
+            printf("= 1 名前の変更\n");
+            printf("= 2 メールアドレスの変更\n");
+            printf("= 3 性別の変更\n");
+            printf("= 4 グループの変更\n");
+            printf("= 5 保存\n");
+            printf("= 0 終了\n>");
             FlushBuffer();
             scanf("%d", &exitCode);
             switch (exitCode){
                 default:
-                    printf("入力したモードは存在しない、もう一度入力してください。\n");
+                    printf("入力したモードは存在しません、もう一度入力してください。\n");
                     break;
                 case 0:
                     break;
@@ -422,13 +422,13 @@ void DataDeleteUI(data *startData, data *endData, int *dataNumber, backupdata *b
             printf("\n= Data: [Now]\n");
             DataRead(startData, endData, dataID);
             printf("===================================");
-            printf("\n= 1 Delete");
-            printf("= 0 Quit without change\n>");
+            printf("\n= 1 消去\n");
+            printf("= 0 終了\n>");
             FlushBuffer();
             scanf("%d", &exitCode);
             switch (exitCode){
                 default:
-                    printf("入力したモードは存在しない、もう一度入力してください。\n");
+                    printf("入力したモードは存在しません、もう一度入力してください。\n");
                     break;
                 case 0:
                     break;
@@ -532,7 +532,7 @@ int FindID(data *startData, data *endData, int dataNumber, char *subTitle)
 
     // make sure the correct mode code has been inputted
     while (searchMode < -1 || searchMode > 4) {
-        printf("入力したモードは存在しない、もう一度入力してください。\n");
+        printf("入力したモードは存在しません、もう一度入力してください。\n");
         FlushBuffer();
         scanf("%d", &searchMode);
     }
@@ -555,7 +555,7 @@ int FindID(data *startData, data *endData, int dataNumber, char *subTitle)
 
         while (searchMode != 0)
         {
-            printf("入力したモードは存在しない、もう一度入力してください。\n");
+            printf("入力したモードは存在しません、もう一度入力してください。\n");
             FlushBuffer();
             scanf("%d", &searchMode);
         }
@@ -622,14 +622,14 @@ int FindID(data *startData, data *endData, int dataNumber, char *subTitle)
     printf("\n= 結果数：%d\n", resultCounter);
     if (resultCounter == 1)
     {
-        printf("= 1 このデータを確定\n");
+        printf("= 1 確定\n");
     }
     else if (resultCounter > 1)
     {
         printf("= 1 他のキーワードでデータを特定\n");
     }
     printf("= 8 A~Zで表示\n");
-    printf("= 9 他のキーワードでもう一度検索\n");
+    printf("= 9 他のキーワードで絞り込む\n");
     printf("= 0 戻る\n>");
 
     // get modecode from standard input
@@ -641,7 +641,7 @@ int FindID(data *startData, data *endData, int dataNumber, char *subTitle)
     {
         while (searchMode != 9 && searchMode != 0 && searchMode != 8)
         {
-            printf("入力したモードは存在しない、もう一度入力してください。\n");
+            printf("入力したモードは存在しません、もう一度入力してください。\n");
             FlushBuffer();
             scanf("%d", &searchMode);
         }
@@ -650,7 +650,7 @@ int FindID(data *startData, data *endData, int dataNumber, char *subTitle)
     {
         while (searchMode != 1 && searchMode != 9 && searchMode != 0 && searchMode != 8)
         {
-            printf("入力したモードは存在しない、もう一度入力してください。\n");
+            printf("入力したモードは存在しません、もう一度入力してください。\n");
             FlushBuffer();
             scanf("%d", &searchMode);
         }
@@ -679,7 +679,6 @@ int FindID(data *startData, data *endData, int dataNumber, char *subTitle)
 
             while (searchMode != 0)
             {
-                printf("入力したモードは存在しない、もう一度入力してください。\n");
                 FlushBuffer();
                 scanf("%d", &searchMode);
             }
