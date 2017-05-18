@@ -24,23 +24,31 @@
 // data structure, typedef as "data"
 typedef struct data
 {
-	int id;
-	char name[NAMELENGTH];
-	char sex[SEXLENGTH];
-	char mail[MAILLENGTH];
-	char group[GROUPLENGTH];
-	struct data *next;
+    int id;
+    char name[NAMELENGTH];
+    char sex[SEXLENGTH];
+    char mail[MAILLENGTH];
+    char group[GROUPLENGTH];
+    struct data *next;
 } data;
+
+// data structure, typedef as "simpledata"
+typedef struct simpledata
+{
+    int id;
+    char name[NAMELENGTH];
+    struct simpledata *next;
+} simpledata;
 
 // backup data structure, typedef as "backupdata"
 typedef struct backupData
 {
-	int operationCode;// 1 - Deleted 2 - Edited 3 - Created
-	int id;
-	char name[NAMELENGTH];
-	char sex[SEXLENGTH];
-	char mail[MAILLENGTH];
-	char group[GROUPLENGTH];
+    int operationCode;// 1 - Deleted 2 - Edited 3 - Created
+    int id;
+    char name[NAMELENGTH];
+    char sex[SEXLENGTH];
+    char mail[MAILLENGTH];
+    char group[GROUPLENGTH];
 } backupdata;
 
 // Zhou Fang
@@ -55,30 +63,31 @@ int  FreeData(data *startData, data *endData);
 
 int  LoadData(char *filePath, data **startData, data **endData, int *dataNumber);
 int  GetOperation();
-int  MainOperation(int operateCode, int *changeCounter, data *startData, data *endData, int *dataNumber,
-                  backupdata *backup, char *filePath);
+int  MainOperation(int operateCode, int *changeCounter, data **startData, data **endData, int *dataNumber,
+                   backupdata *backup, char *filePath);
 int  FindID(data *startData, data *endData, int dataNumber, char *subTitle);
 
-void DataCreateUI(data *startData, data *endData, int *dataNumber, backupdata *backupData, int *changeCounter);
 void DataReadUI(data *startData, data *endData, int dataNumber);
-void DataUpdateUI(data *startData, data *endData, int dataNumber, backupdata *backupData, int *changeCounter);
-void DataDeleteUI(data *startData, data *endData, int *dataNumber, backupdata *backupData, int *changeCounter);
-
 int  DataRead(data *startData, data *endData, int dataID);
 int  DataReadEdited(data *startData, data *endData, data *editedData, int dataID);
 int  DataReadAll(data *startData, data *endData);
+int  DataReadAllOld(data *startData, data *endData);
 
 // Tatsuya Kawamura
+void DataCreateUI(data **startData, data **endData, int *dataNumber, backupdata *backupData, int *changeCounter);
 int DataCreate(data **startData, data **endData, data *newData, int *dataNumber, backupdata *backupData, int mode);
 
+
 // Atsushi Hasegawa
+void DataUpdateUI(data *startData, data *endData, int dataNumber, backupdata *backupData, int *changeCounter);
 int  DataUpdate(data *startData, data *endData, data *editedData, int dataID, backupdata *backupData);
 
 // Yuto Takebayashi
-int  DataDelete(data *startData, data *endData, int dataID, int *dataNumber, backupdata *backupData);
+void DataDeleteUI(data **startData, data **endData, int *dataNumber, backupdata *backupData, int *changeCounter);
+int  DataDelete(data **startData, data **endData, int dataID, int *dataNumber, backupdata *backupData);
 
 // Masuda Tatsuki
-int  DataRedo(data *startData, data *endData, int *dataNumber, backupdata *backupData, int *changeCounter);
+int  DataRedo(data **startData, data **endData, int *dataNumber, backupdata *backupData, int *changeCounter);
 
 // Ryosuke Ukita
 int SaveData(char *filePath,data *startData, data *endData);

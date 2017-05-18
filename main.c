@@ -16,11 +16,26 @@
  * limitations under the License.
  */
 
+// basic libraries
+#ifndef GROUP_F_INCLUDE
+#define GROUP_F_INCLUDE
+#include <stdlib.h>
+#include <string.h>
 #include <stdio.h>
 #include <time.h>
+#endif
+
+// include prototype of data functions 
 #include "main.h"
 #include "basicf.h"
-#include "dataf.h"
+
+#include "datafunc/findid.c"
+#include "datafunc/read.c"
+#include "datafunc/create.c"
+#include "datafunc/update.c"
+#include "datafunc/delete.c"
+#include "datafunc/redo.c"
+#include "datafunc/save.c"
 
 int main(int argc, char const *argv[])
 {
@@ -73,7 +88,7 @@ int main(int argc, char const *argv[])
         ClearScreen();
         ShowTitle();
         ShowMain(*changeCounter);
-        exitCode = MainOperation(GetOperation(), changeCounter, startData, endData, &dataNumber, backup, filePath);
+        exitCode = MainOperation(GetOperation(), changeCounter, &startData, &endData, &dataNumber, backup, filePath);
     }
 
     free(filePath);
@@ -109,7 +124,7 @@ int GetOperation()
  * @param {int*} dataNumber the number of data.
  * @return {int} operateCode exit = -1, stay = else.
  */
-int MainOperation(int operateCode, int *changeCounter, data *startData, data *endData, int *dataNumber,
+int MainOperation(int operateCode, int *changeCounter, data **startData, data **endData, int *dataNumber,
                   backupdata *backup, char *filePath)
 {
     switch(operateCode)
@@ -120,10 +135,10 @@ int MainOperation(int operateCode, int *changeCounter, data *startData, data *en
             DataCreateUI(startData, endData, dataNumber, backup, changeCounter);
             break;
         case 2:
-            DataReadUI(startData, endData, *dataNumber);
+            DataReadUI(*startData, *endData, *dataNumber);
             break;
         case 3:
-            DataUpdateUI(startData, endData, *dataNumber, backup, changeCounter);
+            DataUpdateUI(*startData, *endData, *dataNumber, backup, changeCounter);
             break;
         case 4:
             DataDeleteUI(startData, endData, dataNumber, backup, changeCounter);
@@ -142,7 +157,7 @@ int MainOperation(int operateCode, int *changeCounter, data *startData, data *en
         case 6:
             if (*changeCounter != 0)
             {
-                SaveData(filePath, startData, endData);
+                SaveData(filePath, *startData, *endData);
             }
         case 7:
             if (*changeCounter != 0)

@@ -76,8 +76,8 @@ void ClearScreen()
  * Author: Zhou Fang
  * Last Update: Zhou Fang @ 5/7/2017
  * Close a file by pointer.
- * @param {data*} startData where the data start.
- * @param {data*} endData where the data end.
+ * @param {data**} startData where the data start.
+ * @param {data**} endData where the data end.
  * @return {int} Success -> 1, Failed -> 0.
  */
 int FreeData(data *startData, data *endData)
@@ -135,7 +135,7 @@ void ShowMain(int changeCounter)
     {
         printf("= 5 操作を取り消す\n");
         printf("= 6 保存＆終了\n");
-        printf("= 7 保存しないで終了\n");
+        printf("= 7 保存しないと終了\n");
     }
     else
     {
@@ -201,33 +201,4 @@ int LoadData(char *filePath, data **startData, data **endData, int *dataNumber)
 
     fclose(file);
     return resultCode;
-}
-
-/**
- * Author: Ryosuke Ukita
- * Last Update: Zhou Fang @ 5/7/2017
- * Save data to file.
- * @param {char*} filePath The path of data file.
- * @param {data*} startData where the data start.
- * @param {data*} endData where the data end.
- */
-int SaveData(char *filePath,data *startData, data *endData)
-{
-    FILE *CSVFile;
-    data *data;
-    data = startData;
-
-    CSVFile = fopen(filePath,"w");
-
-    fprintf(CSVFile,"#Id,Name,Sex,Mail address,Group");
-
-    while (data != NULL)
-    {
-        fprintf(CSVFile,"\n%d,%s,%s,%s,%s", data -> id, data -> name, data -> sex, data -> mail, data -> group);
-        data = data -> next;
-    }
-
-    fclose(CSVFile);
-
-    return 1;
 }
